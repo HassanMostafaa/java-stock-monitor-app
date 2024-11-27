@@ -1,0 +1,30 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+    
+    // Add explicit JavaFX runtime dependencies
+    implementation 'org.openjfx:javafx-controls:17'
+    implementation 'org.openjfx:javafx-graphics:17'
+}
+
+application {
+    mainClass = 'stockmonitor.App'
+}
+
+javafx {
+    version = '17'
+    modules = ['javafx.controls', 'javafx.graphics']
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
